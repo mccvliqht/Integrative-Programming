@@ -198,4 +198,8 @@ span {
     box-shadow: 0 0 25px var(--main-color);
 }
 
+#yulip .home-img img {
+    height: 423px;
+}
+
 
