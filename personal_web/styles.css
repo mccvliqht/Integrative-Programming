@@ -211,13 +211,13 @@ span {
     height: 423px;
 }
 
-@media (max-width:!000px) {
+@media (max-width:000px) {
     .home {
         gap: 4rem;
     }
 }
 
-@media (max-width: 995px)}{
+@media (max-width: 995px){
     .home {
         flex-direction: column;
         margin: 5rem 4rem;
