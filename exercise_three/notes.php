@@ -7,10 +7,9 @@ $filename = 'todo.txt';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['task'])) {
     $task = trim($_POST['task']);
     if (!empty($task)) {
-        // Append the task to the todo.txt file
+        
         file_put_contents($filename, $task . PHP_EOL, FILE_APPEND);
 
-        // Set a success message and redirect
         $_SESSION['message'] = 'Task added successfully!';
         header("Location: notes.php");
         exit;
@@ -24,11 +23,9 @@ if (isset($_GET['delete'])) {
     if (file_exists($filename)) {
         $tasks = file($filename, FILE_IGNORE_NEW_LINES);
 
-        // Remove the selected task by its index
         if (isset($tasks[$indexToDelete])) {
             unset($tasks[$indexToDelete]);
 
-            // Rewrite the file without the deleted task
             file_put_contents($filename, implode(PHP_EOL, $tasks) . PHP_EOL);
         }
     }
@@ -38,7 +35,7 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-// dito di ko alam basta sabi ni chatgpt
+// dito yung file exist :)
 $tasks = [];
 if (file_exists($filename)) {
     $tasks = file($filename, FILE_IGNORE_NEW_LINES);
@@ -84,7 +81,7 @@ if (file_exists($filename)) {
     <script src="script.js"></script>
 
     <?php
-    // Display SweetAlert message if available
+    // display SweetAlert message
     if (isset($_SESSION['message'])) {
         echo '<script>
             document.addEventListener("DOMContentLoaded", function() {
